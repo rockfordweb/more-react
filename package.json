@@ -1,0 +1,32 @@
+{
+  "name": "more-react",
+  "version": "1.0.0",
+  "description": "Diving deeper into React with Rockford Web Devs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "compile-jsx-demo": "jsx demos/jsx/src demos/jsx/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rockfordweb/more-react.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "flux",
+    "relay"
+  ],
+  "author": "Rockford Web Devs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rockfordweb/more-react/issues"
+  },
+  "homepage": "https://github.com/rockfordweb/more-react#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jquery": "^2.1.4",
+    "react": "^0.13.3",
+    "reveal": "0.0.4"
+  }
+}
