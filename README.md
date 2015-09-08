@@ -9,7 +9,18 @@ Last month we covered a lot in our [intro to React](http://github.com/rockfordwe
 
 + React Router
 + Flux Architecture
-+ Relay Data Layer
+
+
+## Installing and running the app
+
++ Clone this repository
++ Run `npm install`
++ Run `./index.js`
+
+
+## Developing
+
+You can run `npm run watch-router` or `npm run watch-flux` to watch and compile the router and flux demo applications, respectively.
 
 
 ## License
