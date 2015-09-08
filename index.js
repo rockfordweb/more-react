@@ -42,9 +42,6 @@ function serveDemos( name, index ) {
   /**
    * Our React applications need to be served dynamically in a way
    * that supports HTML5's PushState.
-   *
-   * We serve up our index file unless we specifically get a request
-   * for another file with an extension, as opposed to a path
    */
   function serveRoute( req, res ) {
     var request = req.params[0];
@@ -53,9 +50,13 @@ function serveDemos( name, index ) {
     var absRequest = getAbsPath( request );
     var index = getAbsPath( 'index.html' );
 
+    /**
+     * We serve up our index file unless we specifically get a request
+     * for another file with an extension, as opposed to a path
+     */
     var content = ( isFile.test( request )) ? absRequest : index;
 
-    console.log( type, content );
+    console.log( Date.now(), type, content );
 
     res.set( 'Content-Type', type );
 
@@ -63,7 +64,12 @@ function serveDemos( name, index ) {
   }
 
   function getAbsPath( request ) {
-    return path.join( __dirname, 'demos', name, request );
+    var isNodeModule = /^(\/node_modules\/)/gi;
+
+    // If our asset path begins with node_modules, make sure it's relative to root not demo
+    var relative = ( isNodeModule.test( request )) ? '' : path.join( 'demos', name );
+
+    return path.join( __dirname, relative, request );
   }
 }
 

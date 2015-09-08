@@ -3,21 +3,26 @@
 var React = require( 'react' );
 var Router = require( 'react-router' );
 
-var App = require( './app.js' );
-var One = require( './one.js' );
-var SubOne = require( './sub-one.js' );
-var Two = require( './two.js' );
+var App = require( './handlers/App.js' );
+var Paste = require( './handlers/Paste.js' );
+var PasteForm = require( './handlers/PasteForm.js' );
+var Recent = require( './handlers/Recent.js' );
+var Login = require( './handlers/Login.js' );
+var Register = require( './handlers/Register.js' );
 
 var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 
 var routes = (
-  <Route handler={App}>
-    <DefaultRoute handler={One} />
-    <Route name="one" handler={One}>
-      <Route name="sub-one" handler={SubOne} />
+  <Route path="/" name="home" handler={App}>
+    <DefaultRoute handler={PasteForm} />
+    <Route path="/paste/new" name="new-paste" handler={PasteForm}>
+      <Route path="/paste/edit/:id" name="edit-paste" handler={PasteForm} />
+      <Route path="/paste/:id" name="paste" handler={Paste} />
     </Route>
-    <Route name="two" handler={Two} />
+    <Route name="recent" handler={Recent} />
+    <Route name="login" handler={Login} />
+    <Route name="register" handler={Register} />
   </Route>
 );
 
