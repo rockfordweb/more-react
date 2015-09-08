@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "compile-jsx-demo": "jsx demos/jsx/src demos/jsx/dist"
+    "watch-router": "watchify -t reactify demos/router/src/index.js -o demos/router/dist/router.js",
+    "router": "browserify -t reactify demos/router/src/index.js -o demos/router/dist/router.js",
+    "watch-flux": "watchify -t reactify demos/flux/src/index.js -o demos/flux/dist/flux.js",
+    "flux": "browserify -t reactify demos/flux/src/index.js -o demos/flux/dist/flux.js"
   },
   "repository": {
     "type": "git",
@@ -24,9 +27,14 @@
   },
   "homepage": "https://github.com/rockfordweb/more-react#readme",
   "dependencies": {
+    "browserify": "^11.0.1",
     "express": "^4.13.3",
     "jquery": "^2.1.4",
+    "mime": "^1.3.4",
     "react": "^0.13.3",
-    "reveal": "0.0.4"
+    "react-router": "^0.13.3",
+    "reactify": "^1.1.1",
+    "reveal": "0.0.4",
+    "watchify": "^3.4.0"
   }
 }

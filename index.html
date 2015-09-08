@@ -20,21 +20,154 @@
         <ul>
           <li class="fragment">React Router</li>
           <li class="fragment">Flux Architecture</li>
-          <li class="fragment">Relay Data Structure</li>
         </ul>
       </section>
 
+      <section></section>
+
       <section>
-        <h2>React Router</h2>
+        <h2>
+          <img src="http://rackt.github.io/react-router/img/vertical.png" style="border: 0; box-shadow: none; height: 300px;">
+        </h2>
+        <a href="http://rackt.github.io/react-router/">http://rackt.github.io/react-router/</a>
+      </section>
+
+      <section><h3>Setting up your Router</h3></section>
+
+      <section>
+        <h3><code>Route</code></h3>
+        <h4 class="fragment"><code>&lt;Route handler={Component}&gt;</code></h4>
+        <h4 class="fragment">Props: name, path, handler, ignoreScrollBehavior</h4>
       </section>
 
       <section>
-        <h2>Flux Architecture</h2>
+        <h3>Child routes</h3>
+        <h4 class="fragment">Nest your routes like you would nest tags</h4>
+        <h4 class="fragment"><pre style="box-shadow: none; width: 600px;"><code>
+&lt;Route handler="{App}"&gt;
+  &lt;Route path="thing-one" handler={ThingOne} /&gt;
+  &lt;Route path="thing-two" handler={ThingTwo} /&gt;
+&lt;/Route&gt;
+        </code></pre></h4>
       </section>
 
       <section>
-        <h2>Relay Data Structure</h2>
+        <h3><code>DefaultRoute</code></h3>
+        <h4 class="fragment"><code>&lt;DefaultRoute handler={Default} /&gt;</code></h4>
+        <h4 class="fragment">Ensures that a <code>RouteHandler</code> is always rendered</h4>
       </section>
+
+      <section>
+        <h3><code>NotFoundRoute</code></h3>
+        <h4 class="fragment"><code>&lt;NotFoundRoute handler={RouteNotFound} /&gt;</code></h4>
+        <h4 class="fragment">Allows for granular, context-sensitive "not found" pages</h4>
+      </section>
+
+      <section>
+        <h3><code>Redirect</code></h3>
+        <h4 class="fragment"><code>&lt;Redirect from="old" to="new" /&gt;</code></h4>
+      </section>
+
+      <section><h3>Instantiate your App</h3></section>
+
+      <section>
+        <h3><code>Router.run()</code></h3>
+        <h4>Accepts three arguments:</h4>
+        <h4 class="fragment"><code>Routes</code>, as previously defined</h4>
+        <h4 class="fragment">Location, optional, defaults to <code>Router.HashLocation</code></h4>
+        <h4 class="fragment">Callback provides <code>Root</code> component and <code>state</code> object</h4>
+      </section>
+
+      <section>
+        <h3>Location</h3>
+        <h4 class="fragment"><code>HashLocation</code> (default)</h4>
+        <h4 class="fragment"><code>HistoryLocation</code> uses the HTML5 browser history API</h4>
+        <h4 class="fragment"><code>RefreshLocation</code> initiates full page reload on transition</h4>
+      </section>
+
+      <section><h3>Components</h3></section>
+
+      <section>
+        <h3><code>Root</code></h3>
+        <h4 class="fragment">This component is created by the callback when you start your router</h4>
+        <h4 class="fragment">Render this to start your app</h4>
+      </section>
+
+      <section>
+        <h3><code>RouteHandler</code></h3>
+        <h4 class="fragment">Call <code>&lt;RouteHandler /&gt;</code> where you would normally put the component for that route</h4>
+      </section>
+
+      <section>
+        <h3>Route Handler</h3>
+        <h4 class="fragment">Not to be confused with <code>RouteHandler</code></h4>
+        <h4 class="fragment">URL segments, query parameters and full path are all injected as properties</h4>
+      </section>
+
+      <section>
+        <h3><code>Link</code></h3>
+        <h4 class="fragment"><code>&lt;Link to="routeName" /&gt;</code></h4>
+        <h4 class="fragment">Props: to, params, query, activeClassName, activeStyle, onClick</h4>
+      </section>
+
+      <section><h3><a href="/router">Demo</a></h3></section>
+
+      <section></section>
+
+      <section>
+        <h2>
+          <img src="http://facebook.github.io/flux/img/flux_logo.svg" style="border: 0; box-shadow: none; height: 100px; vertical-align: middle">
+          Flux Architecture
+        </h2>
+        <a href="http://facebook.github.io/flux/">http://facebook.github.io/flux/</a>
+      </section>
+
+      <section>
+        <h3>Unidirectional Data Flow</h3>
+        <a class="fragment" href="http://facebook.github.io/flux/docs/overview.html#structure-and-data-flow">
+          <img src="http://facebook.github.io/flux/img/flux-simple-f8-diagram-1300w.png">
+        </a>
+      </section>
+
+      <section>
+        <h3>Action</h3>
+        <h4 class="fragment">Simple object containing some data and a type</h4>
+      </section>
+
+      <section>
+        <h3>Dispatcher</h3>
+        <h4 class="fragment">The dispatcher acts as the main interchange of data in your application</h4>
+      </section>
+
+      <section>
+        <h3>Stores</h3>
+        <h4 class="fragment">Register callbacks with the dispatcher</h4>
+        <h4 class="fragment">Emit change events when updated from the dispatcher</h4>
+      </section>
+
+      <section>
+        <h3>Views</h3>
+        <h4 class="fragment">Renders on change events</h4>
+        <h4 class="fragment">Handle user interaction, which may result in an action</h4>
+      </section>
+
+      <section>
+        <h3>Flux vs Model-View-Controller</h3>
+        <a class="fragment" href="http://addyosmani.github.io/backbone-fundamentals/#implementation-specifics">
+          <img src="http://addyosmani.github.io/backbone-fundamentals/img/backbone_mvc.png">
+        </a>
+      </section>
+
+      <section>
+        <h3>MVC at scale</h3>
+        <a class="fragment" href="https://keyholesoftware.com/2015/05/11/lessons-from-facebook-reactflux/">
+          <img src="https://keyholesoftware.com/wp-content/uploads/JS-MVC.png" style="background: #fff; max-height: 500px;">
+        </a>
+      </section>
+
+      <section><h3><a href="/flux">Demo</a></h3></section>
+
+      <section><h3>Thank You!</h3></section>
 
     </div>
   </div>
