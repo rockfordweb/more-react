@@ -1,0 +1,11 @@
+.alert-container {
+  margin-top: 60px;
+  opacity: .8;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.alert-container button {
+  margin: 10px;
+}
