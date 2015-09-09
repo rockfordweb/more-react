@@ -1,2 +1,3 @@
 node_modules
 demos/router/dist/*
+demos/flux/dist/*
